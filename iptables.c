@@ -838,9 +838,9 @@ parse_protocol(const char *s)
 		if (!strcmp(s, "all"))
 			return 0;
 
-		if ((pent = getprotobyname(s)))
-			proto = pent->p_proto;
-		else {
+//		if ((pent = getprotobyname(s)))
+//			proto = pent->p_proto;
+//		else {
 			unsigned int i;
 			for (i = 0;
 			     i < sizeof(chain_protos)/sizeof(struct pprot);
@@ -854,7 +854,7 @@ parse_protocol(const char *s)
 				exit_error(PARAMETER_PROBLEM,
 					   "unknown protocol `%s' specified",
 					   s);
-		}
+//		}
 	}
 
 	return (u_int16_t)proto;
