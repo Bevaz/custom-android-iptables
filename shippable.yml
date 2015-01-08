@@ -5,8 +5,7 @@ before_install:
     - sudo apt-get update
 install:
     - sudo apt-get install -y  --no-install-recommends p7zip-full build-essential wget
-    - cd /opt && wget http://dl.google.com/android/ndk/android-ndk-r10d-linux-x86_64.bin
-    - cd /opt && 7z x android-ndk-r10d-linux-x86_64.bin > /dev/null
+    - wget http://dl.google.com/android/ndk/android-ndk-r10d-linux-x86_64.bin -O /opt/android-ndk-r10d-linux-x86_64.bin
+    - 7z x android-ndk-r10d-linux-x86_64.bin -o /opt/ > /dev/null
 script:
-    - pwd && ls -la
-    - export PATH=/opt/android-ndk-r10d:$PATH && ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=Android.mk
+    - export PATH=/opt/android-ndk-r10d:$PATH && ./build.sh
