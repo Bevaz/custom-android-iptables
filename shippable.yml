@@ -9,3 +9,4 @@ install:
     - 7z x -o/opt /opt/android-ndk-r10d-linux-x86_64.bin > /dev/null
 script:
     - export PATH=/opt/android-ndk-r10d:$PATH && ./build.sh
+    - cp libs/armeabi/iptables shippable
