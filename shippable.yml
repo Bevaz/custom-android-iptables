@@ -3,9 +3,9 @@ python: "2.7"
 build_image: shippableimages/ubuntu1404_base
 before_install:
     - sudo apt-get update
-    - cd /opt && wget http://dl.google.com/android/ndk/android-ndk-r10d-linux-x86_64.bin
 install:
-    - sudo apt-get install -y  --no-install-recommends p7zip-full build-essential
+    - sudo apt-get install -y  --no-install-recommends p7zip-full build-essential wget
+    - cd /opt && wget http://dl.google.com/android/ndk/android-ndk-r10d-linux-x86_64.bin
     - cd /opt && 7z x android-ndk-r10d-linux-x86_64.bin
 script:
     - export PATH=/opt/android-ndk-r10d:$PATH && ./build.sh 
