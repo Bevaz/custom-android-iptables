@@ -9,5 +9,5 @@ install:
     - 7z x -o/opt /opt/android-ndk-r10d-linux-x86_64.bin > /dev/null
 script:
     - export PATH=/opt/android-ndk-r10d:$PATH && ./build.sh
-    - tar czf shippable/iptables.tar.gz -C libs/armeabi iptables
+    - tar czf shippable/iptables-`echo $BUILD_NUMBER | cut -d . -f 1`.tar.gz -C libs/armeabi iptables
 archive: true
